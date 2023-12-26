@@ -80,11 +80,11 @@ class _FieldTypeColumn extends TreeColumnData<FieldReference> {
   dynamic getValue(FieldReference dataObject) =>
       dataObject.isEmptyReference || dataObject.isSentinelReference
           ? ''
-          : dataObject.type;
+          : ( dataObject.type.isNotEmpty ? dataObject.type : 'is Empty');
 
   @override
   String getDisplayValue(FieldReference dataObject) =>
-      '${getValue(dataObject)}';
+      '${getValue(dataObject)} |||';
 
   @override
   bool get supportsSorting => true;
